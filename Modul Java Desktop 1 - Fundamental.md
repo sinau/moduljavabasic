@@ -1,7 +1,8 @@
-# Sinau Java Desktop 1 - Fundamental [PERTEMUAN 1] #
+# Sinau Java Desktop 1 - Fundamental #
+
+## [PERTEMUAN 1] ##
 
 Java merupakan bahasa berorientasi object yang dibuat oleh SUN Microsystem (sebelum diakuisisi oleh Oracle). Java merupakan bahasa pemrograman yang lengkap, yang mampu membuat aplikasi mobile, desktop sampai web hanya dengan satu bahasa saja. Teknologi Java dibagi menjadi tiga bagian: JavaSE, JavaME (sekarang sudah jarang dipakai dan diganti dengan Android) dan JavaEE. Yang akan kita pelajari pada modul kali ini adalah JavaSE, yaitu dasar dari aplikasi Java yang dapat digunakan untuk membangun aplikasi console maupun desktop.
-
 
 ## Persiapan Persenjataan ##
 
@@ -264,6 +265,8 @@ Buat class untuk membandingkan dua buah variabel menggunakan operator assigntmen
 Solusi: lihat source code modul `OperatorAssignment.java`.
 
 
+## [PERTEMUAN 2] ##
+
 ## Decisions ##
 
 Didalam pemrograman decision atau aliran kontrol biasanya digunakan untuk menentukan jalannya program.
@@ -392,18 +395,15 @@ Merupakan perintah untuk melewati perulangan tertentu.
 
 Lihat source code modul: `CobaContinue.java`.
 
-
 ## Code Block ##
 
 Code block merupakan pembatas dikenalinya suatu variabel. Ketika suatu variabel didefinisikan didalam blok tertentu maka tidak akan dikenali didalam blok yang lain.
 
 Lihat source code modul `CobaCodeBlock.java`.
 
-
 ## Debugging ##
 
 Debugging merupakan suatu teknik untuk mencari titik permasalahan didalam program. Biasanya debugging dilakukan ketika output dari program yang dibuat tidak sesuai dengan yang diharapkan.
-
 
 ## Tugas ##
 
@@ -412,6 +412,123 @@ Buat perangkingan nilai A-E, jika nilai lebih dari 80 = A, 70-80 = B, 50-60 = C,
 * Input 1: Nama Mahasiswa.
 * Input 2: Nilai Mahasiswa.
 * Output: Halo "Nama Mahasiswa", nilai anda adalah: "Nilai".
+
+
+## [PERTEMUAN 3] ##
+
+## Class, Method dan Constructor ##
+
+Setiap kali kita akan membuat sebuah kode java, yang pertama harus dideklarasikan
+adalah class. Class di dalam java dideklarasikan menggunakan keyword class diikuti dengan nama class. Setelah nama class ada kurung kurawal buka ({) menandai awal dari class dan kurung kurawal tutup (}) yang menandai akhir dari class.
+
+Object adalah instansiasi dari class. Misal kita membuat sebuah class `public class Mahasiswa {}`{.java}, kemudian class tersebut kita instansiasi `Mahasiswa mhs = new Mahasiswa();`{.java}, maka Mahasiswa disini berperan sebagai class sedangkan mhs merupakan object.
+
+Method adalah sekumpulan kode yang diberi nama, untuk merujuk ke sekumpulan kode tersebut digunakan sebuah nama yang disebut dengan nama method. Method mempunyai parameter sebagai input dan nilai kembalian sebagai output.
+
+Constructor adalah method yang spesial, karena mempunyai aturan-aturan sebagai berikut:
+
+* mempunyai nama yang sama persis dengan nama class
+* tidak mempunyai tipe return
+* digunakan untuk menginstansiasi object
+* hanya mempunyai access modifer, tidak ada keyword lain yang diletakkan sebelum nama method pada deklarasi constructor.
+
+```java
+public class Mahasiswa {
+	public Mahasiswa() {
+		System.out.println("Selamat datang!");
+	}
+	public Mahasiswa(String nama) {
+		System.out.println("Halo "+nama+" selamat datang!");
+	}
+	public void kirimPesan(String pesan) {
+		System.out.println("Pesan anda adalah "+pesan);
+	}
+	public Boolean hitungNilai(Integer nilai) {
+		return nilai > 60 ? true : false;
+	}
+}
+```
+
+## Abstract Class dan Interface ##
+
+
+
+## OOP ##
+## Access Modifier ##
+
+Public, protected, default dan private adalah empat buah level access modifer, fungsi dari access modifer adalah mengatur bagaimana bagian-bagian kode java diakses dari bagian yang lain.
+
+```java
+public namaVariable
+public namaMethod()
+protected namaVariable
+protected namaMethod()
+namaVariable //ini variabel dengan access modifier default
+namaMethod() //ini method dengan access modifier default
+private namaVariable
+private namaMethod()
+```
+
+Access modifer public menandakan bisa diakses oleh siapapun tanpa batasan. Access modifer protected bisa diakses oleh class turunanya dan class-class lain yang berada dalam package yang sama. Access modifer default tidak memerlukan keyword, kalau tidak ada salah satu dari tiga access modifer lain maka yang digunakan adalah access modifer default. Kalau access modifer default digunakan, maka hanya class dari package yang sama saja yang bisa mengakses, termasuk class itu sendiri. Yang terakhir adalah access modifer private yang hanya mengijinkan diakses oleh class yang sama.
+
+## Konstanta ##
+
+Konstanta dalam java juga mempunyai aturan penamaan yang diterangkan dalam Java Code
+Convention. Nama konstanta semuanya huruf besar dan dipisahkan dengan underscore (_)
+kalau terdiri dari dua kata atau lebih.
+
+```java
+final Integer INI_ADALAH_KONSTANTA_INTEGER = 10;
+final String INI_ADALAH_KONSTANTA_STRING = "Hello";
+```
+
+## Package dan Import ##
+
+Pakcage dalam java adalah sebuah mekanisme untuk mengorganisasi penamaan class ke dalam modul-modul. Class yang mempunyai fungsionalitas serupa dan kemiripan cukup tinggi biasanya diletakkan dalam satu package yang sama.
+
+Import digunakan untuk menyederhanakan penulisan class. Tanpa menggunakan import kita harus menuliskan nama lengkap class besarta packagenya. Dengan menggunakan import, kita deklarasikan di mana class yang digunakan tersebut berada sehingga selanjutnya tidak perlu lagi menuliskan nama package dari sebuah class. Ada dua pengecualian di mana import tidak diperlukan, pertama untuk class-class yang berada dalam package yang sama dan kedua adalah class-class yang berada dalam package java.lang.
+
+```java
+package javabasic.session1.challenge.solution;
+import java.util.Scanner;
+public class InputNamaDanUsia {
+	public static void main(String[] args) {
+		System.out.println("Silahkan masukkan nama dan usia.");
+
+		String nama;
+		int usia;
+
+		Scanner in = new Scanner(System.in);
+		nama = in.nextLine();
+		usia = in.nextInt();
+		System.out.println("Halo " + nama + "\nUsia anda adalah " + usia);
+	}
+}
+```
+
+## Exception ##
+## Java I/O File ##
+
+## Challenge ##
+
+Buat interface BangunDatar yang didalamnya memiliki method hitungLuas dengan dua buah parameter double, buat tiga buah class beri nama Segitiga, Persegi dan PersegiPanjang masing-masing dari class tersebut implement dari BangunDatar. Buat class main didalamnya terdapat pilihan untuk menghitung luas dari masing-masing bangun datar tersebut.
+
+
+## [PERTEMUAN 4] ##
+
+## JDBC ##
+## PrepareStatement ##
+
+
+## [PERTEMUAN 5] ##
+
+## DAO (Data Access Object) ##
+## Review Materi ##
+
+
+
+
+
 
 
 
