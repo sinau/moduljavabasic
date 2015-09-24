@@ -418,12 +418,20 @@ Buat perangkingan nilai A-E, jika nilai lebih dari 80 = A, 70-80 = B, 50-60 = C,
 
 ## Class, Method dan Constructor ##
 
+### Class ###
+
 Setiap kali kita akan membuat sebuah kode java, yang pertama harus dideklarasikan
 adalah class. Class di dalam java dideklarasikan menggunakan keyword class diikuti dengan nama class. Setelah nama class ada kurung kurawal buka ({) menandai awal dari class dan kurung kurawal tutup (}) yang menandai akhir dari class.
 
+### Object ###
+
 Object adalah instansiasi dari class. Misal kita membuat sebuah class `public class Mahasiswa {}`{.java}, kemudian class tersebut kita instansiasi `Mahasiswa mhs = new Mahasiswa();`{.java}, maka Mahasiswa disini berperan sebagai class sedangkan mhs merupakan object.
 
+### Method ###
+
 Method adalah sekumpulan kode yang diberi nama, untuk merujuk ke sekumpulan kode tersebut digunakan sebuah nama yang disebut dengan nama method. Method mempunyai parameter sebagai input dan nilai kembalian sebagai output.
+
+### Constructor ###
 
 Constructor adalah method yang spesial, karena mempunyai aturan-aturan sebagai berikut:
 
@@ -449,9 +457,26 @@ public class Mahasiswa {
 }
 ```
 
+### Challenge ###
+
+Buat class main untuk menginstansiasi class Mahasiswa diatas dan panggil methodnya.
+
 ## Abstract Class dan Interface ##
 
 Abstract class merupakan sebuah class yang memiliki method abstract. Method abstract adalah method yang tidak memiliki definisi, dan pendefinisiannya diserahkan ke class turunannya. Sedangkan interface merupakan class abstract yang mana semua method adalah abstract dan semua variable nya akan didefinisikan sebagai static dan final (konstanta).
+
+Sedangkan interface merupakan class yang semua methodnya bersifat abstract dan harus diimplementasikan di class yang mengimplementasikan interface tersebut, dan semua variable didalam interface akan dideklarasikan sebagai `public static final` atau dengan kata lain sebagai sebuah konstanta.
+
+## Konstanta ##
+
+Konstanta dalam java juga mempunyai aturan penamaan yang diterangkan dalam Java Code
+Convention. Nama konstanta semuanya huruf besar dan dipisahkan dengan underscore (_)
+kalau terdiri dari dua kata atau lebih.
+
+```java
+final Integer INI_ADALAH_KONSTANTA_INTEGER = 10;
+final String INI_ADALAH_KONSTANTA_STRING = "Hello";
+```
 
 ## OOP ##
 
@@ -496,17 +521,6 @@ private namaMethod()
 
 Access modifer public menandakan bisa diakses oleh siapapun tanpa batasan. Access modifer protected bisa diakses oleh class turunanya dan class-class lain yang berada dalam package yang sama. Access modifer default tidak memerlukan keyword, kalau tidak ada salah satu dari tiga access modifer lain maka yang digunakan adalah access modifer default. Kalau access modifer default digunakan, maka hanya class dari package yang sama saja yang bisa mengakses, termasuk class itu sendiri. Yang terakhir adalah access modifer private yang hanya mengijinkan diakses oleh class yang sama.
 
-## Konstanta ##
-
-Konstanta dalam java juga mempunyai aturan penamaan yang diterangkan dalam Java Code
-Convention. Nama konstanta semuanya huruf besar dan dipisahkan dengan underscore (_)
-kalau terdiri dari dua kata atau lebih.
-
-```java
-final Integer INI_ADALAH_KONSTANTA_INTEGER = 10;
-final String INI_ADALAH_KONSTANTA_STRING = "Hello";
-```
-
 ## Package dan Import ##
 
 Pakcage dalam java adalah sebuah mekanisme untuk mengorganisasi penamaan class ke dalam modul-modul. Class yang mempunyai fungsionalitas serupa dan kemiripan cukup tinggi biasanya diletakkan dalam satu package yang sama.
@@ -528,6 +542,22 @@ public class InputNamaDanUsia {
 		usia = in.nextInt();
 		System.out.println("Halo " + nama + "\nUsia anda adalah " + usia);
 	}
+}
+```
+
+## Exception ##
+
+Exception sangat penting di Java, digunakan untuk menangani kesalahan, misal karena kesalahan input, ada pembagian dengan 0 atau konversi tipe data yang salah. Exception sangat berguna apabila muncul kesalahan didalam aplikasi, maka tidak akan langsung keluar atau close begitu saja.
+
+```java
+try {
+	//kode yang ada exception
+} catch (ExceptionPertama ex){
+	//handle exception dengan tipe ExceptionPertama
+} catch (ExceptionKedua ex){
+	//handle exception dengan tipe ExceptionKedua
+} finally{
+	//bersihkan resource yang dipakai, baik terjadi exception ataupun tidak
 }
 ```
 
