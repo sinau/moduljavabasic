@@ -451,9 +451,34 @@ public class Mahasiswa {
 
 ## Abstract Class dan Interface ##
 
-
+Abstract class merupakan sebuah class yang memiliki method abstract. Method abstract adalah method yang tidak memiliki definisi, dan pendefinisiannya diserahkan ke class turunannya. Sedangkan interface merupakan class abstract yang mana semua method adalah abstract dan semua variable nya akan didefinisikan sebagai static dan final (konstanta).
 
 ## OOP ##
+
+Java merupakan bahasa pemrograman berorientasi object. Ciri khas dari OOP adalah memiliki sifat-sifat atau karakter sebagai berikut: inheritance atau pewarisan, overloading, overriding, enkapsulasi dan polimorfisme.
+
+### Inheritance ###
+
+Inheritance atau pewarisan adalah kemampuan untuk mewariskan method atau variable ke dalam class anak.
+
+### Overloading ###
+
+Overloading adalah method dalam satu class yang sama memiliki nama yang sama namun memiliki parameter yang berbeda.
+
+### Overriding ###
+
+Overriding adalah mendefinisikan ulang method dari class induk.
+
+### Enkapsulasi ###
+
+Enkapsulasi atau information hiding adalah menyembunyikan method atau variable tertentu dari class lain, biasanya dengan memberi akses modifier `private`.
+
+### Polimorfisme ###
+
+Polimorfisme adalah class abstract atau interface yang dapat diinstansiasi dengan berbagai macam class turunannya.
+
+Lihat source code modul tentang OOP didalam package `javabasic.session3`.
+
 ## Access Modifier ##
 
 Public, protected, default dan private adalah empat buah level access modifer, fungsi dari access modifer adalah mengatur bagaimana bagian-bagian kode java diakses dari bagian yang lain.
@@ -506,9 +531,6 @@ public class InputNamaDanUsia {
 }
 ```
 
-## Exception ##
-## Java I/O File ##
-
 ## Challenge ##
 
 Buat interface BangunDatar yang didalamnya memiliki method hitungLuas dengan dua buah parameter double, buat tiga buah class beri nama Segitiga, Persegi dan PersegiPanjang masing-masing dari class tersebut implement dari BangunDatar. Buat class main didalamnya terdapat pilihan untuk menghitung luas dari masing-masing bangun datar tersebut.
@@ -517,16 +539,25 @@ Buat interface BangunDatar yang didalamnya memiliki method hitungLuas dengan dua
 ## [PERTEMUAN 4] ##
 
 ## JDBC ##
-## PrepareStatement ##
+
+Untuk mengakses database dari Java, kita memerlukan library tambahan, atau biasa disebut sebagai JDBC driver. Driver yang akan digunakan harus disesuaikan dengan database yang digunakan. Sebagai contoh bila kita menggunakan database mysql maka driver yang digunakan adalah driver dari database mysql.
+
+Untuk mendapatkan driver bisa dicari di repository maven seperti berikut: http://mvnrepository.com/artifact/mysql/mysql-connector-java.
+
+Pada sesi ini kita akan mencoba membuat database menggunakan mysql dan akan kita akses dari Java.
+
+Lihat source code modul dalam package `javabasic.session4`.
 
 
 ## [PERTEMUAN 5] ##
 
 ## DAO (Data Access Object) ##
-## Review Materi ##
 
+DAO atau Data Access Object merupakan salah satu konsep dari separation of concern, yaitu memisahkan antara tampilan user, model dan logic dari aplikasi, terutama kaitannya dengan akses ke database.
 
+Pada sesi kali ini kita akan merefactor code yang telah kita buat pada sesi ke-4 dan merubahnya dengan mengimplementasikan konsep dari DAO.
 
+Lihat source code modul dalam package `javabasic.session5`.
 
 
 
