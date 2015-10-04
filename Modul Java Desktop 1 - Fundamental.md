@@ -502,9 +502,7 @@ Enkapsulasi atau information hiding adalah menyembunyikan method atau variable t
 
 Polimorfisme adalah class abstract atau interface yang dapat diinstansiasi dengan berbagai macam class turunannya.
 
-Lihat source code modul tentang OOP didalam package `javabasic.session3`.
-
-## Access Modifier ##
+### Access Modifier ###
 
 Public, protected, default dan private adalah empat buah level access modifer, fungsi dari access modifer adalah mengatur bagaimana bagian-bagian kode java diakses dari bagian yang lain.
 
@@ -521,29 +519,7 @@ private namaMethod()
 
 Access modifer public menandakan bisa diakses oleh siapapun tanpa batasan. Access modifer protected bisa diakses oleh class turunanya dan class-class lain yang berada dalam package yang sama. Access modifer default tidak memerlukan keyword, kalau tidak ada salah satu dari tiga access modifer lain maka yang digunakan adalah access modifer default. Kalau access modifer default digunakan, maka hanya class dari package yang sama saja yang bisa mengakses, termasuk class itu sendiri. Yang terakhir adalah access modifer private yang hanya mengijinkan diakses oleh class yang sama.
 
-## Package dan Import ##
-
-Pakcage dalam java adalah sebuah mekanisme untuk mengorganisasi penamaan class ke dalam modul-modul. Class yang mempunyai fungsionalitas serupa dan kemiripan cukup tinggi biasanya diletakkan dalam satu package yang sama.
-
-Import digunakan untuk menyederhanakan penulisan class. Tanpa menggunakan import kita harus menuliskan nama lengkap class besarta packagenya. Dengan menggunakan import, kita deklarasikan di mana class yang digunakan tersebut berada sehingga selanjutnya tidak perlu lagi menuliskan nama package dari sebuah class. Ada dua pengecualian di mana import tidak diperlukan, pertama untuk class-class yang berada dalam package yang sama dan kedua adalah class-class yang berada dalam package java.lang.
-
-```java
-package javabasic.session1.challenge.solution;
-import java.util.Scanner;
-public class InputNamaDanUsia {
-	public static void main(String[] args) {
-		System.out.println("Silahkan masukkan nama dan usia.");
-
-		String nama;
-		int usia;
-
-		Scanner in = new Scanner(System.in);
-		nama = in.nextLine();
-		usia = in.nextInt();
-		System.out.println("Halo " + nama + "\nUsia anda adalah " + usia);
-	}
-}
-```
+Lihat source code modul tentang OOP didalam package `javabasic.session3`.
 
 ## Exception ##
 
@@ -581,11 +557,28 @@ Lihat source code modul dalam package `javabasic.session4`.
 
 ## [PERTEMUAN 5] ##
 
-## DAO (Data Access Object) ##
+## Package dan Import ##
 
-DAO atau Data Access Object merupakan salah satu konsep dari separation of concern, yaitu memisahkan antara tampilan user, model dan logic dari aplikasi, terutama kaitannya dengan akses ke database.
+Pakcage dalam java adalah sebuah mekanisme untuk mengorganisasi penamaan class ke dalam modul-modul. Class yang mempunyai fungsionalitas serupa dan kemiripan cukup tinggi biasanya diletakkan dalam satu package yang sama.
 
-Pada sesi kali ini kita akan merefactor code yang telah kita buat pada sesi ke-4 dan merubahnya dengan mengimplementasikan konsep dari DAO.
+Import digunakan untuk menyederhanakan penulisan class. Tanpa menggunakan import kita harus menuliskan nama lengkap class besarta packagenya. Dengan menggunakan import, kita deklarasikan di mana class yang digunakan tersebut berada sehingga selanjutnya tidak perlu lagi menuliskan nama package dari sebuah class. Ada dua pengecualian di mana import tidak diperlukan, pertama untuk class-class yang berada dalam package yang sama dan kedua adalah class-class yang berada dalam package java.lang.
+
+## Date, Calendar, DateFormat ##
+
+Class Date adalah representasi dari waktu di Java, class ini terdapat dua jenis: java.util.Date dan java.sql.Date. Class java.util.Date adalah class yang sering digunakan dalam perhitungan tanggal, sedangkan java.sql.Date adalah representasi data tanggal di java yang setara dengan tipe data date di dalam database. Kalau tidak bekerja dengan database, sebaiknya selalu gunakan java.util.Date, sedangkan java.sql.Date hanya digunakan ketika kita bekerja dengan database. Istilah class Date di dalam bab ini merujuk ke java.util.Date.
+
+## Joda Time ##
+
+Joda Time merupakan library tambahan yang sangat mempermudah dalam melakukan perhitungan yang berhubungan dengan date. Joda Time memperkenalkan enam konsep waktu, yaitu :
+
+* Instant : sebuah instant adalah nilai dalam mili detik dari 1 januari 1970 00:00:00 hingga sekarang.
+* Parsial : representasi sebagian dari waktu, misalnya tanggal saja atau waktu saja. (jarang digunakan, lebih baik menggunakan DateTime)
+* Interval : interval waktu dari awal hingga akhir. Dalam interval terdapat dua buah instant yaitu awal dan akhir.
+* Durasi : durasi waktu dalam mili detik, misalnya 1000 mili detik.
+* Periode : periode waktu yang direpresentasikan dalam satuan-satuan waktu, misalnya 1 hari 2 jam 3 menit dan 30 detik.
+* Chronology : sistem penanggalan yang bisa digunakan sebagai basis perhitungan waktu.
+
+Joda Time dapat diunduh disitus berikut: http://www.joda.org/joda-time/.
 
 Lihat source code modul dalam package `javabasic.session5`.
 
